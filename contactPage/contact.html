@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<div>
+    <head>
+        <title>ArtStudy</title>
+        <link rel="stylesheet" href="contact.css">
+    </head>
+    <body>
+        <!--headern som är längst upp på sidan-->
+        <div id="header">
+            <img src="../images/TransparentArtStudyLogo.svg" alt="Logo" id="Logo">
+                <h1 id="title">ArtStudy</h1>
+                <ul id="options">
+                    <a href="../index.html" id="Home">Home</a>
+                    <a href="../aboutPage/about.html" id="About">About</a>
+                    <a href="contact.html" id="Contact">Contact</a>
+                </ul>
+            <!-- för mobil läge  -->
+                <div class="dropdown">
+                    <img id="dropDownLogo" src="../images/Filter.svg" alt="Filter" onclick="dropDown()">
+                    <div id="dropdown-content">
+                        <ul id="dropDownList">
+                            <a class="dropDownItems" href="../index.html">Home</a>
+                            <a class="dropDownItems" href="../aboutPage/about.html">About</a>
+                            <a class="dropDownItems" href="./contact.html">Contact</a>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+        <!--titeln-->
+        <div id="container">
+            <div id="contactTitle">
+                <div id="line1"></div>
+                <h1 id="contactMe"> Contact Me </h1>
+                <div id="line2"></div>
+            </div>
+            <!-- alla skriv fält och knappen -->
+            <div id="textContent">
+                <p><label for="gmail" id="labelGmail">Gmail:</label></p>
+                <input type="text" placeholder="Example@gmail.com" id="gmail">
+                <p><label for="subject" id="labelSubject">Subject:</label></p>
+                <input type="text" placeholder="subject" id="subject">
+                <p><label for="message" id="labelMessage">Message:</label></p>
+                <textarea id="message" name="message" rows="10" cols="77" placeholder="Message"></textarea>
+                <br>
+                <button onclick="sendContact()" id="submitButton">submit</button>
+            </div>
+            <!-- Footer -->
+
+            <div id="footer">
+                <div id="line"></div>
+                <div id="footerImgs">
+                    <img src="../images/Filter.svg" alt="sdfadsf" id="footerLinkImg">
+                    <img src="../images/socialLogo.svg" alt="asdfsd" id="footerSocialsImg">
+                </div>
+                <div id="links-socials">
+                    <p>Links</p>
+                    <p>Socials</p>
+                </div>
+                <div id="links-logos">
+                    <div id="links">
+                        <li onclick="location.href='../index.html'"><a href="">Home</a></li>
+                        <li onclick="location.href='../aboutPage/about.html'"><a href="">About</a></li>
+                        <li onclick="location.href='./contactPage/contact.html'"><a href="#">Contact</a></li>
+                    </div>
+                    <div id="socials">
+                        <a href="https://www.instagram.com/" target="_blank"><img class="logos" src="../images/instagram-logo.png" alt=""></a>
+                        <a href="https://www.linkedin.com/feed/" target="_blank"><img class="logos" src="../images/LinkedIn-logo.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="contact.js">
+        async function postContact(url) {
+            // Define the URL of the server endpoint
+
+            // Data to send in the POST request (in JSON format)
+            const gmail = document.querySelector("#gmail").value;
+            const message = document.querySelector("#message").value;
+            const userData = {
+                email: `${gmail}`,
+                message: `${message}`
+            };
+
+            // Create the request object
+            const requestOptions = {
+                method: 'POST',                  // HTTP method
+                headers: {
+                    'Content-Type': 'application/json', // Set the content type to JSON
+                },
+                body: JSON.stringify(userData),   // Convert data to JSON string
+            };
+
+            try {
+                const response = await fetch(url, requestOptions);
+
+                if (!response.ok) {
+                throw new Error(`HTTP Error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('User created successfully:', data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        function sendContact() {
+            const gmail = document.querySelector("#gmail").value;
+            const subject = document.querySelector("#subject").value;
+            const message = document.querySelector("#message").value;
+            postContact('http://localhost:8000/contact');
+            postContact('http://localhost:8000/send-email');
+            //const result = (async () => await postContact())(); 
+            alert(`submitted:
+            From:${gmail.toLowerCase()} 
+            Subject:${subject}
+            Message: ${message}`)
+        }
+    </script>
+</div>
+</html>

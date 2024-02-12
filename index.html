@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>ArtStudy</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!-- navigation bar -->
+
+        <div id="header">
+            <img src="images/TransparentArtStudyLogo.svg" alt="Logo" id="Logo">
+            <h1 id="title">ArtStudy</h1>
+            <ul id="options">
+                <a href="./index.html" id="Home">Home</a>
+                <a href="./aboutPage/about.html" id="About">About</a>
+                <a href="./contactPage/contact.html" id="Contact">Contact</a>
+            </ul>
+
+            <!-- Det här är för mobilen där jag skapar en dropdown -->
+
+            <div class="dropdown" >
+                <img id="dropDownLogo" src="./images/Filter.svg" alt="Filter" onclick="dropDown()">
+                <div id="dropdown-content">
+                    <ul id="dropDownList">
+                        <a class="dropDownItems" href="./index.html">Home</a>
+                        <a class="dropDownItems" href="./aboutPage/about.html">About</a>
+                        <a class="dropDownItems" href="./contactPage/contact.html">Contact</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orden man ser först och knappen som man kan trycka på -->
+
+        <div id="start">
+            <h1 id="startWords">I Create...</h1>
+            <!--
+                <button id="startButton" onclick="scrollDown()">Show</button>
+            -->
+            <button class="button-57" role="button" onclick="scrollDown()"><span class="text">Press...</span><span>Click Me!!</span></button>
+                <img src="./images/painting1.jpg" alt="" id="startImage">
+            <!-- Det här är backgrounds bilden som jag kan ändra -->   
+            <!-- <div id="placeholderImg"></div> -->
+        </div>
+        <div id="middle">
+            <div id="artSquare" class="square"><p>Art</p></div>
+            <div id="websiteSquare" class="square"><p>Websites</p></div>
+            <div id="logo-Square" class="square"><p>Logos</p></div>
+            <div class="break"></div>
+            <img src="./images/thinArrow.svg" alt="" id="firstArrow" onclick="scrollDown2()">
+        </div>
+
+        <!-- Här börjar all content komma dvs. alla bilder och tabs samt texten som är sidovänt på sidan -->
+
+        <h1 id="sideways">Digital Art</h1>
+        <div id="art">
+            <h1 id="sideways1">Logos</h1>
+            <div id="row1">
+                <!-- tabsen som väljer vilka bilder jag ska visa -->
+                <div id="tabs">
+                    <h2 id="titleDigitalArt" onclick="showingDigitalArt()" class="a">Digital Art</h2>
+                    <h2 id="titleLogos" onclick="showingLogos()">Logos</h2>
+                </div>
+                <div id="underlineDigitalArt"></div>
+                <!-- digitala bilderna -->
+                <div id="digitalArt">
+                    <img src="images/painting1Show.jpg" alt="painting1" id="painting1">
+                    <img src="images/painting2.jpg" alt="painting2" id="painting2">
+                    <img src="images/painting5.jpg" alt="painting5" id="painting5">
+                    <img src="images/painting6.jpg" alt="painting6" id="painting6">
+                    <img src="images/painting7.jpg" alt="painting7" id="painting7">
+                    <img src="images/painting8.jpg" alt="painting8" id="painting8">
+
+                    <div class="popUpDG">
+                        <span>&times;</span>
+                        <img src="images/painting1Show.jpg" alt="" class="popUpImg">
+                    </div>
+                </div>
+
+                <!-- logosen -->
+
+                <div id="Logos">
+                    <img src="images/eye.svg" alt="" id="speechLogo">
+                    <img src="images/temple.svg" alt="painting7" id="temple" onclick="openLightbox('./images/temple.svg', 'realism1')">
+                    <img src="images/waterDelivery.svg" alt="" id="waterLogo" onclick="openLightbox('./images/waterDelivery.svg', 'realism1')">
+                    <img src="images/chartLogo.svg" alt="painting5" id="chartLogo" onclick="openLightbox('./images/chartLogo.svg', 'realism1')">
+                    <img src="images/SpeechLogo.svg" alt="painting6" id="speechLogo" onclick="openLightbox('./images/speechLogo.svg', 'realism1')">
+                    <img src="images/B.svg" alt="painting8" id="B" onclick="openLightbox('./images/painting8.jpg', 'realism1')">
+                    <div class="popUpLogo">
+                        <span>&times;</span>
+                        <img src="images/SpeechLogo.svg" alt="" class="popUpImg">
+                    </div>
+                </div>
+            </div>
+            <!-- den här diven är för en pil som gör att man scrollar längst upp på sidan-->
+            <div id="arrow" onclick="scrollToTop()"><img src="./images/arrow.svg" alt="arrow"></div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
