@@ -36,17 +36,21 @@
             </div>
             <!-- alla skriv fält och knappen -->
             <div id="textContent">
-                <p><label for="gmail" id="labelGmail">Gmail:</label></p>
+                <p><label for="gmail" id="labelGmail">Name:</label></p>
                 <input type="text" placeholder="Example@gmail.com" id="gmail">
                 <p><label for="subject" id="labelSubject">Subject:</label></p>
                 <input type="text" placeholder="subject" id="subject">
                 <p><label for="message" id="labelMessage">Message:</label></p>
                 <textarea id="message" name="message" rows="10" cols="77" placeholder="Message"></textarea>
                 <br>
-                <button onclick="sendContact()" id="submitButton">submit</button>
+                <button onclick="comment()" id="submitButton">submit</button>
             </div>
-            <!-- Footer -->
+            
+            <div id="commentSection">
+                <h1>Comment Section</h1>
+            </div>
 
+            <!-- Footer -->
             <div id="footer">
                 <div id="line"></div>
                 <div id="footerImgs">
@@ -118,6 +122,7 @@
             Subject:${subject}
             Message: ${message}`)
         }
+
     </script>
 </div>
 </html>

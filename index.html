@@ -38,17 +38,32 @@
             <!--
                 <button id="startButton" onclick="scrollDown()">Show</button>
             -->
-            <button class="button-57" role="button" onclick="scrollDown()"><span class="text">Press...</span><span>Click Me!!</span></button>
-                <img src="./images/painting1.jpg" alt="" id="startImage">
+            <button class="button-57" role="button" onclick="scrollDown(middle)"><span class="text">hover...</span><span>Click Me!!</span></button>
             <!-- Det här är backgrounds bilden som jag kan ändra -->   
+                <img src="./images/painting1.jpg" alt="" id="startImage">
             <!-- <div id="placeholderImg"></div> -->
         </div>
         <div id="middle">
-            <div id="artSquare" class="square"><p>Art</p></div>
+            <div id="artSquare" class="square" onclick="artSquare()"><p>Art</p></div>
             <div id="websiteSquare" class="square"><p>Websites</p></div>
-            <div id="logo-Square" class="square"><p>Logos</p></div>
+            <div id="logo-Square" class="square" onclick="logoSquare()"><p>Logos</p></div>
             <div class="break"></div>
-            <img src="./images/thinArrow.svg" alt="" id="firstArrow" onclick="scrollDown2()">
+            <img src="./images/thinArrow.svg" alt="" id="firstArrow" onclick="scrollDown(websitePortfolio)">
+        </div>
+
+        <div id="websitePortfolio">
+            <h1>Website Projects</h1>
+            <div id="projectsDiv">
+                <div class="projectBlock">
+                    <a href="https://santatsut.github.io/toDoList/" target="_blank"><div id="toDoListWebsite" class="projects">To Do List</div></a>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatem aspernatur, numquam fugiat soluta enim inventore adipisci obcaecati dicta architecto totam beatae esse, veritatis fugit.</p>
+                </div>
+                <div class="projectBlock">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita culpa asperiores, soluta assumenda, placeat repellat eaque neque dolorem repellendus accusamus nesciunt unde, iste delectus! Et.</p>
+                    <a href="https://santatsut.github.io/videoPlayer/" target="_blank"><div id="videoPlayer" class="projects">Video Player</div></a>
+                </div>
+            </div>
+            <img src="./images/thinArrow.svg" alt="" id="secondArrow" onclick="scrollDown(art)">
         </div>
 
         <!-- Här börjar all content komma dvs. alla bilder och tabs samt texten som är sidovänt på sidan -->
@@ -83,10 +98,11 @@
                 <div id="Logos">
                     <img src="images/eye.svg" alt="" id="speechLogo">
                     <img src="images/temple.svg" alt="painting7" id="temple" onclick="openLightbox('./images/temple.svg', 'realism1')">
+                    <img src="images/chartLogo.svg" alt="ChartLogo" id="chartLogo" onclick="openLightbox('./images/chartLogo.svg', 'realism1')">
+                    <img src="images/B.svg" alt="B logo" id="B" onclick="openLightbox('./images/painting8.jpg', 'realism1')">
+                    <img src="images/hypixel.svg" alt="hypixel" id="hypixel" onclick="openLightbox('./images/painting8.jpg', 'realism1')">
                     <img src="images/waterDelivery.svg" alt="" id="waterLogo" onclick="openLightbox('./images/waterDelivery.svg', 'realism1')">
-                    <img src="images/chartLogo.svg" alt="painting5" id="chartLogo" onclick="openLightbox('./images/chartLogo.svg', 'realism1')">
-                    <img src="images/SpeechLogo.svg" alt="painting6" id="speechLogo" onclick="openLightbox('./images/speechLogo.svg', 'realism1')">
-                    <img src="images/B.svg" alt="painting8" id="B" onclick="openLightbox('./images/painting8.jpg', 'realism1')">
+                    <img src="images/SpeechLogo.svg" alt="SpeechLogo" id="speechLogo" onclick="openLightbox('./images/speechLogo.svg', 'realism1')">
                     <div class="popUpLogo">
                         <span>&times;</span>
                         <img src="images/SpeechLogo.svg" alt="" class="popUpImg">

@@ -6,6 +6,7 @@
 body {
   background-color: rgba(244, 253, 255);
   overflow: auto;
+  overflow-x: hidden;
 }
 
 
@@ -182,6 +183,7 @@ a:hover:after {
   width: 100vw;
   height: 100vh;
   position: relative;
+  filter: blur(2px);
 }
 
 #placeholderImg {
@@ -344,11 +346,72 @@ a:hover:after {
   flex-grow: 1;
   cursor:pointer;
 }
+
 .break {
   display: flex;
   flex-basis: 100%;
 }
 
+/* Websites projects part */
+
+#websitePortfolio {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#websitePortfolio h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 42px;
+}
+
+#projectsDiv {
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: space-around;
+  justify-content: space-around;
+  height: 100%;
+  margin-top: 50px;
+  flex-direction: column;
+  transform: rotate(-3deg);
+}
+
+#projectsDiv :nth-child(even) {
+  align-self: space-between;
+}
+
+.projects {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 25px;
+  border: solid 1px white;
+  border-radius: 15px;
+}
+
+.projectBlock {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(0, 7, 20);
+  padding: 80px;
+}
+
+.projectBlock p {
+  color: #dddde2;
+  font-size: 15px;
+  max-width: 500px;
+}
+
+#secondArrow {
+  display: flex;
+  position: relative;
+  max-width: 50px;
+  flex-grow: 1;
+  cursor:pointer;
+}
 
 /* the art content */
 /* this is the container for the art and logos showing */
@@ -372,7 +435,7 @@ a:hover:after {
   position: absolute;
   display: flex;
   font-size: 80px;
-  top: 138rem;
+  top: 350vh;
   left: 5%;
   height: 50vh;
   width: 100px;
@@ -396,7 +459,7 @@ a:hover:after {
   position: absolute;
   display: none;
   font-size: 80px;
-  top: 134rem;
+  top: 345vh;
   right: 5%;
   height: 50vh;
   width: 100px;

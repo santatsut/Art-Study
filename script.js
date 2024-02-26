@@ -25,9 +25,9 @@ function rendering() {
     document.getElementsByClassName('hidden').className="PaintingShowing";
   } 
 }
-// scrolling down with start button
-let viewElement = document.getElementById('middle'); 
-function scrollDown() {
+// scrolling down function, pass in a div that it scorlls down to display
+
+function scrollDown(viewElement) {
     /*
     window.scrollTo({
         top: 900,
@@ -39,17 +39,14 @@ function scrollDown() {
       });
 }
 
-let viewElement1 = document.getElementById('titleDigitalArt'); 
-function scrollDown2() {
-    /*
-    window.scrollTo({
-        top: 900,
-        behavior: "smooth",
-      });
-    */
-      viewElement1.scrollIntoView({
-        behavior: "smooth"
-      });
+let logoSquare = () => {
+  scrollDown2();
+  showingLogos();
+}
+
+let artSquare = () => {
+  scrollDown2();
+  showingDigitalArt();
 }
 
 

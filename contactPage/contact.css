@@ -250,6 +250,17 @@ label {
   background-color: rgb(197, 197, 197);
 }
 
+/*comment section*/
+
+#commentSection h1{
+  display: flex;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: lighter;
+  font-style: italic;
+  justify-content: center;
+  margin-top: 50px;
+}
+
 /* footer */
 
 #footer {
