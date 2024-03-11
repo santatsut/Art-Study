@@ -184,6 +184,8 @@ ul {
 #gmail {
   display: flex;
   width: 575px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 15px;
   height: 40px;
   background-color: rgba(224, 224, 224, 0.459);
   margin-top: 100px;
@@ -195,6 +197,8 @@ ul {
   display: flex;
   width: 575px;
   height: 40px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 15px;
   background-color: rgba(224, 224, 224, 0.459);
   margin-bottom: 50px;
   border: none;
@@ -206,6 +210,8 @@ ul {
   background-color: rgba(224, 224, 224, 0.459);
   border: none;
   resize: none;
+  padding: 0px 10px 0px 10px;
+  border-radius: 15px;
 }
 
 label {
@@ -259,6 +265,11 @@ label {
   font-style: italic;
   justify-content: center;
   margin-top: 50px;
+}
+
+#warning {
+  display: none;
+  color: red;
 }
 
 /* footer */

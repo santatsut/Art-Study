@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 /* for the whole page */
 * {
   margin: 0px;
@@ -7,9 +9,7 @@ body {
   background-color: rgba(244, 253, 255);
   overflow: auto;
   overflow-x: hidden;
-}
-
-
+} 
 
 /* navbar / header */
 #Logo {
@@ -24,8 +24,6 @@ ul {
   list-style-type: none;
   margin: 0px;
   padding: 0px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: bold;
   font-size: 16px;
 }
 
@@ -197,12 +195,17 @@ a:hover:after {
 #startWords {
   position: absolute;
   z-index: 30;
-  font-size: 48px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: bolder;
+  font-size: 64px;
+  font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   color: #f4fdff;
   margin-bottom: 225px;
+}
+
+.text {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 24px;
 }
 
 /*
@@ -316,18 +319,16 @@ a:hover:after {
   position: relative;
   width: 550px;
   height: 450px;
-  background-image: url("./images/vines.svg");
-  background-size: 750px;
+  background-image: url(./images/corner.svg);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   font-size: 48px;
   font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
   font-style: italic;
   align-items: center;
   justify-content: center;
-  border-radius: 50px;
+  border-radius: 15px;
   color: #000000;
   overflow: hidden;
   margin: 15px;
@@ -363,7 +364,10 @@ a:hover:after {
 }
 
 #websitePortfolio h1 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: italic;
   font-size: 42px;
   margin-top: 25px;
 }
@@ -385,7 +389,7 @@ a:hover:after {
 }
 
 .projects {
-  font-family: 'Times New Roman', Times, serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: italic;
   font-size: 25px;
   border: solid 1px white;
@@ -399,7 +403,6 @@ a:hover:after {
   width: 100%;
   background-color: rgb(0, 7, 20);
   padding: 80px;
-  transform: rotate(-2deg);
 }
 
 .projectBlock p {
@@ -451,9 +454,8 @@ a:hover:after {
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: bolder;
-  font-style: italic;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: lighter;
   color: #000000;
 }
 
@@ -475,9 +477,8 @@ a:hover:after {
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: bold;
-  font-style: italic;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: lighter;
   color: #000000;
 }
 
@@ -885,6 +886,26 @@ a:hover:after {
 
 #sideways1, #sideways2 {
   display:none
+}
+#startWords {
+  align-items: center;
+  text-align: center;
+  justify-self:center;
+  margin-bottom: 300px;
+}
+
+#header {
+  height: 150px;
+}
+
+#Logo {
+  width: 105px;
+  height: 125px;
+}
+
+#dropDownLogo {
+  width: 100px;
+  height: 105px;
 }
 
 }

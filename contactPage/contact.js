@@ -20,7 +20,7 @@ function comment() {
   checkM = message.replace(/\s+/g, '');
   
 
-  if (checkG !== "" && checkS !== "" && checkM !== "") {
+  if (checkG !== "" && gmail.includes("@gmail.com") && checkS !== "" && checkM !== "") {
     //let key = (Math.random() + 1).toString(36).substring(7);
     
     var newDiv = document.createElement("p");
@@ -42,6 +42,8 @@ function comment() {
 
     localStorage.setItem(key,`${gmail}`);  
     key += 1;
+  } else {
+    document.getElementById("warning").style.display = "flex";
   }
 }
 
