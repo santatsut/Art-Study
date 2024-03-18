@@ -39,12 +39,10 @@
                 <p><label for="gmail" id="labelGmail">Name:</label></p>
                 <p id="warning">*Warning: gmail has to contain "@gmail.com"</p>
                 <input type="text" placeholder="Example@gmail.com" id="gmail">
-                <p><label for="subject" id="labelSubject">Subject:</label></p>
-                <input type="text" placeholder="subject" id="subject">
                 <p><label for="message" id="labelMessage">Message:</label></p>
                 <textarea id="message" name="message" rows="10" cols="77" placeholder="Message"></textarea>
                 <br>
-                <button onclick="comment()" id="submitButton">submit</button>
+                <button onclick="sendContact()" id="submitButton">submit</button>
             </div>
             
             <div id="commentSection">
@@ -76,54 +74,7 @@
             </div>
         </div>
     </body>
-    <script src="contact.js">
-        async function postContact(url) {
-            // Define the URL of the server endpoint
-
-            // Data to send in the POST request (in JSON format)
-            const gmail = document.querySelector("#gmail").value;
-            const message = document.querySelector("#message").value;
-            const userData = {
-                email: `${gmail}`,
-                message: `${message}`
-            };
-
-            // Create the request object
-            const requestOptions = {
-                method: 'POST',                  // HTTP method
-                headers: {
-                    'Content-Type': 'application/json', // Set the content type to JSON
-                },
-                body: JSON.stringify(userData),   // Convert data to JSON string
-            };
-
-            try {
-                const response = await fetch(url, requestOptions);
-
-                if (!response.ok) {
-                throw new Error(`HTTP Error! Status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                console.log('User created successfully:', data);
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-
-        function sendContact() {
-            const gmail = document.querySelector("#gmail").value;
-            const subject = document.querySelector("#subject").value;
-            const message = document.querySelector("#message").value;
-            postContact('http://localhost:8000/contact');
-            postContact('http://localhost:8000/send-email');
-            //const result = (async () => await postContact())(); 
-            alert(`submitted:
-            From:${gmail.toLowerCase()} 
-            Subject:${subject}
-            Message: ${message}`)
-        }
-
+    <script src="./contact.js">
     </script>
 </div>
 </html>

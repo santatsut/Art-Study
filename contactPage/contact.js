@@ -11,20 +11,45 @@ let dropDown = () => {
 }
 
 function comment() {
-  var key = 0;
   const gmail = document.querySelector("#gmail").value;
-  const subject = document.querySelector("#subject").value;
   const message = document.querySelector("#message").value;
+
   checkG = gmail.replace(/\s+/g, '');
-  checkS = subject.replace(/\s+/g, '');
   checkM = message.replace(/\s+/g, '');
+
   
 
   if (checkG !== "" && gmail.includes("@gmail.com") && checkS !== "" && checkM !== "") {
-    //let key = (Math.random() + 1).toString(36).substring(7);
-    
+      //let key = (Math.random() + 1).toString(36).substring(7);
+      
+      var newDiv = document.createElement("p");
+      newDiv.innerHTML = `${gmail} <br> ${subject} <br> ${message}`;
+      
+      const parent = document.querySelector("#commentSection");
+      parent.appendChild(newDiv);
+      
+      newDiv.style.backgroundColor = "rgb(50, 50, 20)";
+      newDiv.style.color = "white";
+      newDiv.style.width = "50rem";
+      newDiv.style.height = "10rem";
+      newDiv.style.display = "flex";
+      newDiv.style.position = "relative";
+      newDiv.style.padding = "10px";
+      newDiv.style.margin = "auto";
+      newDiv.style.marginTop = "100px";
+      newDiv.style.borderRadius = "10px";
+
+    } else {
+        document.getElementById("warning").style.display = "flex";
+    }
+  }
+
+  function sendContact() {
+    const gmail = document.querySelector("#gmail").value;
+    const message = document.querySelector("#message").value;
+
     var newDiv = document.createElement("p");
-    newDiv.innerHTML = `${gmail} <br> ${subject} <br> ${message}`;
+    newDiv.innerHTML = `${gmail} <br> ${message}`;
     
     const parent = document.querySelector("#commentSection");
     parent.appendChild(newDiv);
@@ -39,35 +64,35 @@ function comment() {
     newDiv.style.margin = "auto";
     newDiv.style.marginTop = "100px";
     newDiv.style.borderRadius = "10px";
-
-    localStorage.setItem(key,`${gmail}`);  
-    key += 1;
-  } else {
-    document.getElementById("warning").style.display = "flex";
-  }
+    alert('thanks for commenting');
+    postContact('http://localhost:8000/contact', gmail, message);
 }
 
-window.onload = function() {
-  let key = localStorage.length;
-  console.log(key)
-  for (let i = 0; i < key; i++) {
-    var newDiv = document.createElement("p");
+async function postContact(url, gmail, message) {
 
-    var x = localStorage.getItem(i);
-    newDiv.innerHTML = `${x}asdfs <br> hello this is storage <br> adjfklajsdk`;
-    
-    newDiv.style.backgroundColor = "rgb(50, 50, 20)";
-    newDiv.style.color = "white";
-    newDiv.style.width = "50rem";
-    newDiv.style.height = "10rem";
-    newDiv.style.display = "flex";
-    newDiv.style.position = "relative";
-    newDiv.style.padding = "10px";
-    newDiv.style.margin = "auto";
-    newDiv.style.marginTop = "100px";
-    newDiv.style.borderRadius = "10px";
-    
-    const parent = document.querySelector("#commentSection");
-    parent.appendChild(newDiv);
+  const userData = {
+    gmail, 
+    message,
+  };
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userData)
+  };
+
+  try {
+    const response = await fetch(url, options);
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    console.log('User created:', data);
+  } catch (error) {
+    console.error('There was a problem with the POST request:', error);
   }
-};
+}
