@@ -48,22 +48,6 @@ function comment() {
     const gmail = document.querySelector("#gmail").value;
     const message = document.querySelector("#message").value;
 
-    var newDiv = document.createElement("p");
-    newDiv.innerHTML = `${gmail} <br> ${message}`;
-    
-    const parent = document.querySelector("#commentSection");
-    parent.appendChild(newDiv);
-    
-    newDiv.style.backgroundColor = "rgb(50, 50, 20)";
-    newDiv.style.color = "white";
-    newDiv.style.width = "50rem";
-    newDiv.style.height = "10rem";
-    newDiv.style.display = "flex";
-    newDiv.style.position = "relative";
-    newDiv.style.padding = "10px";
-    newDiv.style.margin = "auto";
-    newDiv.style.marginTop = "100px";
-    newDiv.style.borderRadius = "10px";
     alert('thanks for commenting');
     postContact('http://localhost:8000/contact', gmail, message);
 }
@@ -96,3 +80,30 @@ async function postContact(url, gmail, message) {
     console.error('There was a problem with the POST request:', error);
   }
 }
+
+async function getData() {
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  try {
+    const response = await fetch('http://localhost:8000/data', options);
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+
+    const data = await response.json();
+    console.log('data fetched:', data);
+
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
+}
+
+getData();
